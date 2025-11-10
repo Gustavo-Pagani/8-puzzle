@@ -6,12 +6,22 @@
 int main(void) {
     int tabuleiro[3][3];
     int vetor[9];
-
+    char mov;
     gerar_tabuleiro_aleatorio(vetor);
     preencher_tabuleiro(vetor, tabuleiro);
 
-    printf("Tabuleiro gerado:\n");
-    imprimir_tabuleiro(tabuleiro);
+    while (1){
+        
+        imprimir_tabuleiro(tabuleiro);
+
+        printf("Mover (W/A/S/D) ou x para sair: ");
+        scanf("%c",&mov);
+
+        if (mov == 'X' || mov == 'x'){ break;}
+
+        mover_peca(tabuleiro, mov);
+        
+    }
 
     return 0;
 }
