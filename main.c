@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "puzzle.h"
+#include "busca_profundidade.h"
 
 int main(void) {
     int tabuleiro[3][3];
