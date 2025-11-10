@@ -38,8 +38,6 @@ void imprimir_tabuleiro(int matriz[3][3]) {
 }
 
 void achar_x(int matriz[3][3], int *linha_X, int *coluna_X){
-    int *linha_X;
-    int *coluna_X;
     for (int i=0; i <3; i++){
         for (int j=0; j<3; j++){
             if (matriz[i][j] == 0){
@@ -51,6 +49,7 @@ void achar_x(int matriz[3][3], int *linha_X, int *coluna_X){
 }
 
 void mover_peca(int matriz[3][3], char direcao){
+
     int linha_X, coluna_X;
     achar_x(matriz, &linha_X, &coluna_X);
 
@@ -79,3 +78,25 @@ void mover_peca(int matriz[3][3], char direcao){
     matriz[nova_linha][nova_coluna] = matriz[linha_X][coluna_X];
     matriz[linha_X][coluna_X] = aux;
 }
+
+int estado_final(int matriz[3][3]) {
+    int alvo[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 0}
+    };
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (matriz[i][j] != alvo[i][j])
+                return 0; // ainda não está resolvido
+        }
+    }
+    return 1; //  resolvido
+}
+
+
+
+
+
+
