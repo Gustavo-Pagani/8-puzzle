@@ -95,6 +95,21 @@ int estado_final(int matriz[3][3]) {
     return 1; //  resolvido
 }
 
+int eh_resolvivel(int vetor[9]) {
+    int inversoes = 0;
+
+    for (int i = 0; i < 9; i++) {
+        for (int j = i + 1; j < 9; j++) {
+            // ignorar o zero (espaço vazio)
+            if (vetor[i] != 0 && vetor[j] != 0 && vetor[i] > vetor[j]) {
+                inversoes++;
+            }
+        }
+    }
+
+    // se o número de inversões for par → resolvível
+    return (inversoes % 2 == 0);
+}
 
 
 

@@ -7,7 +7,11 @@ int main(void) {
     int tabuleiro[3][3];
     int vetor[9];
     char mov;
-    gerar_tabuleiro_aleatorio(vetor);
+    do {
+
+        gerar_tabuleiro_aleatorio(vetor);
+    } while (!eh_resolvivel(vetor));
+
     preencher_tabuleiro(vetor, tabuleiro);
 
     while (1){

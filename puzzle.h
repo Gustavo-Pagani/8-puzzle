@@ -7,4 +7,10 @@ void imprimir_tabuleiro(int matriz[3][3]);
 void achar_x(int matriz[3][3], int *linha, int *coluna);
 void mover_peca(int matriz[3][3], char direcao);
 int estado_final(int matriz[3][3]);
+int eh_resolvivel(int vetor[9]);
+
+
+
+
+
 #endif
