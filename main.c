@@ -15,12 +15,11 @@ int main(void) {
 
     preencher_tabuleiro(vetor, tabuleiro);
 
-    while (1){
-        
-        imprimir_tabuleiro(tabuleiro);
+    while(1){
 
+        imprimir_tabuleiro(tabuleiro);
         printf("Mover (W/A/S/D) ou x para sair: ");
-        scanf("%c",&mov);
+        scanf(" %c",&mov);
 
         if (mov == 'X' || mov == 'x'){ break;}
 
@@ -31,7 +30,7 @@ int main(void) {
             printf("\nPARABENS, Você resolveu o puzzle!!.");
             break;
         }
-        
+
     }
 
     return 0;
