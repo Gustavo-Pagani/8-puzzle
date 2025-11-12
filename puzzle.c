@@ -53,10 +53,7 @@ void mover_peca(int matriz[3][3], char direcao){
     int nova_linha = linha_X;
     int nova_coluna = coluna_X;
 
-    if (direcao == 'W' || direcao == 'w' && nova_linha>=0) {
-		nova_linha--;
-		printf("MERDA");
-		}
+    if (direcao == 'W' || direcao == 'w' && nova_linha>=0) {nova_linha--;}
 
     else if (direcao == 'S' || direcao == 's'&& nova_linha<=2) {nova_linha++;}
 
@@ -66,12 +63,12 @@ void mover_peca(int matriz[3][3], char direcao){
 
     else {
         printf("Movimento invalido!\n");
-    
+
     }
 
     if (nova_linha < 0 || nova_linha > 2 || nova_coluna < 0 || nova_coluna > 2) {
         printf("Nao e possivel mover nessa direcao!\n");
-    
+
     }
 
     int aux = matriz[nova_linha][nova_coluna];
