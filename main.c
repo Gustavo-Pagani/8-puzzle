@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
 #include "puzzle.h"
 #include "busca_largura.h"
 
-int main(){
+int main() {
+
     int tabuleiro[3][3];
     int vetor[9];
     char mov;
@@ -19,46 +18,35 @@ int main(){
     printf("\n====== 8-PUZZLE ======\n");
     printf("1 - Jogar manualmente\n");
     printf("2 - Resolver com IA (BFS)\n");
-    printf("3 - Resolver com IA (DFS)\n");
-    printf("4 - Resolver com IA (A*)\n");
-
     printf("Escolha: ");
     scanf("%d", &opcao);
 
-    if (opcao == 1){
-        
-        while(1) {
+    if (opcao == 1) {
+
+        while (1) {
             imprimir_tabuleiro(tabuleiro);
-            printf("Mover (W/A/S/D) ou X para desistir: ");
+            printf("Mover (W/A/S/D) ou X para sair: ");
             scanf(" %c", &mov);
 
-            if (mov == 'X' || mov == 'x'){break;}
+            if (mov == 'X' || mov == 'x') break;
 
             mover_peca(tabuleiro, mov);
-            
-            if (estado_final(tabuleiro)){
+
+            if (estado_final(tabuleiro)) {
                 imprimir_tabuleiro(tabuleiro);
-                printf("\nPARABENS ! Voce resolveu o puzzle!\n");
+                printf("\nPARABENS! Você resolveu o puzzle!\n");
                 break;
             }
         }
     }
 
-    else if (opcao == 2){
-        printf("\n\n--- Executando Busca em Largura (BFS) ---\n");
+    else if (opcao == 2) {
+        printf("\n--- Executando BFS ---\n");
         busca_largura(tabuleiro);
     }
 
-    else if (opcao == 3){
-        printf("\n\n--- Executando Busca em Profundiade (DFS) ---\n");
-    }
-
-    else if (opcao == 4){
-        printf("\n\n--- Executando Busca A Estrela (A*)---\n");
-    }
-
     else {
-        printf("Opcao invalida.\n");
+        printf("Opção inválida.\n");
     }
 
     return 0;

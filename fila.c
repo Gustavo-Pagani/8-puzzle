@@ -26,26 +26,15 @@ void insere_fila(Fila *fila, Estado *estado) {
 Estado* retira_fila(Fila *fila) {
     if (fila->inicio == NULL) return NULL;
 
-    No *removido = fila->inicio;
-    Estado *estado = removido->estado;
+    No *rem = fila->inicio;
+    Estado *e = rem->estado;
 
-    fila->inicio = removido->prox;
-    free(removido);
+    fila->inicio = rem->prox;
+    free(rem);
 
-    return estado;
+    return e;
 }
 
 int fila_vazia(Fila *fila) {
     return (fila->inicio == NULL);
-}
-
-void liberar_fila(Fila *fila){
-    while (fila->inicio != NULL){
-        No *atual = fila->inicio;
-        fila->inicio = atual ->prox;
-        free(atual->estado);
-        free(atual);
-    }
-    fila->fim = NULL;
-    free(fila);
 }

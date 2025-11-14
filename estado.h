@@ -1,7 +1,6 @@
 #ifndef ESTADO_H
 #define ESTADO_H
 
-#include "busca_largura.h"
 
 typedef struct Estado {
     int matriz[3][3];           // Tabuleiro 
