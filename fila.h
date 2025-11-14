@@ -26,14 +26,15 @@ typedef struct {
 // Cria uma nova fila vazia
 Fila* criar_fila();
 
-// Adiciona um novo estado ao final da fila
-void enfileirar(Fila *fila, Estado *estado);
-
-// Remove e retorna o primeiro estado da fila
-Estado* desenfileirar(Fila *fila);
-
 // Retorna 1 se a fila vazia
 int fila_vazia(Fila *fila);
+
+// Adiciona um novo estado ao final da fila
+void insere_fila(Fila *fila, Estado *estado);
+
+// Remove e retorna o primeiro estado da fila
+Estado* retira_fila(Fila *fila);
+
 
 // free fila
 void liberar_fila(Fila *fila);
