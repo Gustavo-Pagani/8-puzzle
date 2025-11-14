@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 #include "puzzle.h"
 
 void gerar_tabuleiro_aleatorio(int vetor[9]) {
