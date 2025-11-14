@@ -5,12 +5,13 @@
             "label": "C/C++: gcc.exe build active file",
             "command": "C:/msys64/ucrt64/bin/gcc.exe",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "C:\\Users\\gusta\\OneDrive\\Área de Trabalho\\8-puzzlePI\\8-puzzlePI\\main.c", "C:\\Users\\gusta\\OneDrive\\Área de Trabalho\\8-puzzlePI\\8-puzzlePI\\puzzle.c",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                 "-fdiagnostics-color=always",
+                 "-g",
+                 "*.c",
+                 "-o",
+                 "${fileDirname}/main.exe"
             ],
+
             "options": {
                 "cwd": "C:/msys64/ucrt64/bin"
             },

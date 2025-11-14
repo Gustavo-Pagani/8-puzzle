@@ -34,6 +34,8 @@ int main(){
 
             if (mov == 'X' || mov == 'x'){break;}
 
+            mover_peca(tabuleiro, mov);
+            
             if (estado_final(tabuleiro)){
                 imprimir_tabuleiro(tabuleiro);
                 printf("\nPARABENS ! Voce resolveu o puzzle!\n");
