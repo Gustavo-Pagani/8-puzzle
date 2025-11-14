@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "fila.h"
+#include "estado.h"
 
 Fila* criar_fila(){
     Fila *fila = (Fila*) malloc(sizeof(fila));
