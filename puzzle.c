@@ -2,32 +2,32 @@
 #include <stdlib.h>
 #include "puzzle.h"
 
-void gerar_tabuleiro_aleatorio(int vetor[9]) {
+void gerar_tabuleiro_aleatorio(int vetor[9]){
+    for (int i=0; i<9; i++){vetor[i] = i;}
 
-    for (int i = 0; i < 9; i++)
-        vetor[i] = i;
-
-    for (int i = 0; i < 9; i++) {
+    for (int i=0; i<9; i++){
         int j = rand() % 9;
-        int temp = vetor[i];
+        int aux = vetor[i];
         vetor[i] = vetor[j];
-        vetor[j] = temp;
+        vetor[j] = aux;
     }
 
 }
 
-void preencher_tabuleiro(int vetor[9], int matriz[3][3]) {
-    int k = 0;
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+void preencher_tabuleiro(int vetor[9], int matriz[3][3]){
+    int k=0;
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
             matriz[i][j] = vetor[k++];
+        }
+    }
 }
 
 void imprimir_tabuleiro(int matriz[3][3]) {
     printf("\n+---+---+---+\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            matriz[i][j] == 0    ? printf("| Y ")  : printf("| %d ", matriz[i][j]);
+            matriz[i][j] == 0    ? printf("|   ")  : printf("| %d ", matriz[i][j]);
         }
         printf("|\n+---+---+---+\n");
     }
@@ -53,13 +53,13 @@ void mover_peca(int matriz[3][3], char direcao){
     int nova_coluna = coluna_X;
     int cont=0;
 
-    if (direcao == 'W' || direcao == 'w' && nova_linha>0) {nova_linha--;}
+    if ((direcao == 'W' || direcao == 'w') && nova_linha>0) {nova_linha--;}
 
-    else if (direcao == 'S' || direcao == 's'&& nova_linha<2) {nova_linha++;}
+    else if ((direcao == 'S' || direcao == 's') && nova_linha<2) {nova_linha++;}
 
-    else if (direcao == 'A' || direcao == 'a'&& nova_coluna>0) {nova_coluna--;}
+    else if ((direcao == 'A' || direcao == 'a') && nova_coluna>0) {nova_coluna--;}
 
-    else if (direcao == 'D' || direcao == 'd'&& nova_coluna<2) {nova_coluna++;}
+    else if ((direcao == 'D' || direcao == 'd') && nova_coluna<2) {nova_coluna++;}
 
     else {
         printf("Movimento invalido!\n");
@@ -94,7 +94,6 @@ int eh_resolvivel(int vetor[9]) {
 
     for (int i = 0; i < 9; i++) {
         for (int j = i + 1; j < 9; j++) {
-            // ignorar o zero (espaço vazio)
             if (vetor[i] != 0 && vetor[j] != 0 && vetor[i] > vetor[j]) {
                 inversoes++;
             }
@@ -104,8 +103,5 @@ int eh_resolvivel(int vetor[9]) {
     // se o número de inversões for par → resolvível
     return (inversoes % 2 == 0);
 }
-
-
-
 
 

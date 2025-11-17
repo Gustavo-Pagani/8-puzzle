@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "puzzle.h"
 #include "busca_largura.h"
+#include "estado.h"
 
 int main() {
 
@@ -34,7 +35,7 @@ int main() {
 
             if (estado_final(tabuleiro)) {
                 imprimir_tabuleiro(tabuleiro);
-                printf("\nPARABENS! Você resolveu o puzzle!\n");
+                printf("\nPARABENS! Voce resolveu o puzzle!\n");
                 break;
             }
         }
@@ -47,7 +48,7 @@ int main() {
     }
 
     else {
-        printf("Opção inválida.\n");
+        printf("Opcao invalida.\n");
     }
 
     return 0;
