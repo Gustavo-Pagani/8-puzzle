@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "estado.h"
 #include "puzzle.h"
+int visitado[362880] = {0};
 
 void copiar_matriz(int origem[3][3], int destino[3][3]){
     for (int i=0; i<3; i++){
@@ -106,6 +107,21 @@ int codigo_matriz(int v[9]) {
     return cod;
 }
 
+int codigo_do_estado(Estado *e){
+    int v[9];
+    matriz_para_vetor(e->matriz, v);
+    return codigo_matriz(v);
+}
+
+int foi_visitado(Estado *e){
+    int cod = codigo_do_estado(e);
+    return visitado[cod];
+}
+
+void marcar_visitado(Estado *e){
+    int cod = codigo_do_estado(e);
+    visitado[cod] = 1;
+}
 
 
 

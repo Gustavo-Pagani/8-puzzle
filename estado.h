@@ -16,4 +16,10 @@ void matriz_para_vetor(int matriz[3][3], int vetor[9]);
 int fatorial(int n);
 int codigo_matriz(int v[9]);
 
+int codigo_do_estado(Estado *e);
+
+int foi_visitado(Estado *e);
+
+void marcar_visitado(Estado *e);
+
 #endif

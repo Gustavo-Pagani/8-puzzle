@@ -1,15 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "puzzle.h"
 #include "busca_largura.h"
+#include "busca_profundidade.h"
 
 int main() {
+
+    srand(time(NULL));
 
     int tabuleiro[3][3];
     int vetor[9];
     char mov;
     int opcao;
 
-    // Gera apenas tabuleiros vï¿½lidos
+    // Gera somente tabuleiros válidos
     do {
         gerar_tabuleiro_aleatorio(vetor);
     } while(!eh_resolvivel(vetor));
@@ -21,10 +26,11 @@ int main() {
     printf("======================================\n");
     printf("1 - Jogar manualmente\n");
     printf("2 - Resolver com IA (BFS)\n");
+    printf("3 - Resolver com IA (DFS)\n");
     printf("Escolha: ");
     scanf("%d", &opcao);
 
-    //   OPCAO 1: JOGAR MANUALMENTE
+    // ----- OPÇÃO 1: JOGAR MANUALMENTE -----
     if (opcao == 1) {
 
         while (1) {
@@ -39,22 +45,32 @@ int main() {
             if (estado_final(tabuleiro)) {
                 imprimir_tabuleiro(tabuleiro);
                 printf("\n======================================\n");
-                printf("       PARABENS! Puzzle Resolvido!     \n");
+                printf("       PARABENS! Puzzle Resolvido!    \n");
                 printf("======================================\n");
                 break;
             }
         }
     }
 
-    //   OPCAO 2: RESOLVER COM BFS
+    // ----- OPÇÃO 2: BFS -----
     else if (opcao == 2) {
         printf("\n======================================\n");
         printf("          EXECUTANDO BFS...           \n");
         printf("======================================\n\n");
+
         busca_largura(tabuleiro);
     }
 
+    // ----- OPÇÃO 3: DFS -----
+    else if (opcao == 3) {
+        printf("\n======================================\n");
+        printf("          EXECUTANDO DFS...           \n");
+        printf("======================================\n\n");
 
+        busca_profundidade(tabuleiro);
+    }
+
+    // Opção inválida
     else {
         printf("\nOpcao invalida.\n");
     }
