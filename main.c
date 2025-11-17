@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "puzzle.h"
 #include "busca_largura.h"
-#include "estado.h"
 
 int main() {
 
@@ -10,18 +9,22 @@ int main() {
     char mov;
     int opcao;
 
+    // Gera apenas tabuleiros válidos
     do {
         gerar_tabuleiro_aleatorio(vetor);
     } while(!eh_resolvivel(vetor));
 
     preencher_tabuleiro(vetor, tabuleiro);
 
-    printf("\n====== 8-PUZZLE ======\n");
+    printf("\n======================================\n");
+    printf("              8-PUZZLE                \n");
+    printf("======================================\n");
     printf("1 - Jogar manualmente\n");
     printf("2 - Resolver com IA (BFS)\n");
     printf("Escolha: ");
     scanf("%d", &opcao);
 
+    //   OPÇÃO 1: JOGAR MANUALMENTE
     if (opcao == 1) {
 
         while (1) {
@@ -35,20 +38,25 @@ int main() {
 
             if (estado_final(tabuleiro)) {
                 imprimir_tabuleiro(tabuleiro);
-                printf("\nPARABENS! Voce resolveu o puzzle!\n");
+                printf("\n======================================\n");
+                printf("       PARABENS! Puzzle Resolvido!     \n");
+                printf("======================================\n");
                 break;
             }
         }
     }
 
+    //   OPÇÃO 2: RESOLVER COM BFS
     else if (opcao == 2) {
-        printf("\n--- Executando BFS ---\n");
+        printf("\n======================================\n");
+        printf("          EXECUTANDO BFS...           \n");
+        printf("======================================\n\n");
         busca_largura(tabuleiro);
-        printf("OLA TESTE");
     }
 
+
     else {
-        printf("Opcao invalida.\n");
+        printf("\nOpcao invalida.\n");
     }
 
     return 0;
