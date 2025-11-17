@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <assert.h>
 #include "fila.h"
 
 Fila* criar_fila() {
