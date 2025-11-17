@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <assert.h>
 #include "estado.h"
 #include "puzzle.h"
 
@@ -11,7 +10,6 @@ void copiar_matriz(int origem[3][3], int destino[3][3]) {
 
 Estado* criar_estado(Estado *pai, char movimento, int matriz_nova[3][3]) {
     Estado *novo_estado = (Estado*) malloc(sizeof(Estado));
-    assert(novo_estado != NULL);
 
     copiar_matriz(matriz_nova, novo_estado->matriz);
 
@@ -41,11 +39,11 @@ void gerar_filhos(Estado *atual, Estado *filhos[4], int *qtd) {
         int nc = coluna_zero;
         char m = movs[i];
 
-        if (m == 'W' && nl > 0) nl--;
-        else if (m == 'S' && nl < 2) nl++;
-        else if (m == 'A' && nc > 0) nc--;
-        else if (m == 'D' && nc < 2) nc++;
-        else continue;
+        if (m == 'W' && nl > 0) {nl--;}
+        else if (m == 'S' && nl < 2) {nl++;}
+        else if (m == 'A' && nc > 0) {nc--;}
+        else if (m == 'D' && nc < 2) {nc++;}
+        else {continue;}
 
         int temp[3][3];
         copiar_matriz(atual->matriz, temp);
