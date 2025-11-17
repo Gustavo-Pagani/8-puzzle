@@ -23,13 +23,13 @@ void insere_fila(Fila *fila, Estado *estado) {
 }
 
 Estado* retira_fila(Fila *fila) {
-    if (fila->inicio == NULL) return NULL;
+    if (fila->inicio == NULL) {return NULL;}
 
-    No *rem = fila->inicio;
-    Estado *e = rem->estado;
+    No *removido = fila->inicio;
+    Estado *e = removido->estado;
 
-    fila->inicio = rem->prox;
-    free(rem);
+    fila->inicio = removido->prox;
+    free(removido);
 
     return e;
 }
