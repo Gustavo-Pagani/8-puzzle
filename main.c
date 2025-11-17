@@ -34,7 +34,7 @@ int main() {
 
             if (estado_final(tabuleiro)) {
                 imprimir_tabuleiro(tabuleiro);
-                printf("\nPARABENS! VocÃª resolveu o puzzle!\n");
+                printf("\nPARABENS! Você resolveu o puzzle!\n");
                 break;
             }
         }
@@ -43,10 +43,11 @@ int main() {
     else if (opcao == 2) {
         printf("\n--- Executando BFS ---\n");
         busca_largura(tabuleiro);
+        printf("OLA TESTE");
     }
 
     else {
-        printf("OpÃ§Ã£o invÃ¡lida.\n");
+        printf("Opção inválida.\n");
     }
 
     return 0;
