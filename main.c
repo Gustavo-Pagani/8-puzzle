@@ -9,7 +9,7 @@ int main() {
     char mov;
     int opcao;
 
-    // Gera apenas tabuleiros válidos
+    // Gera apenas tabuleiros vï¿½lidos
     do {
         gerar_tabuleiro_aleatorio(vetor);
     } while(!eh_resolvivel(vetor));
@@ -24,7 +24,7 @@ int main() {
     printf("Escolha: ");
     scanf("%d", &opcao);
 
-    //   OPÇÃO 1: JOGAR MANUALMENTE
+    //   OPCAO 1: JOGAR MANUALMENTE
     if (opcao == 1) {
 
         while (1) {
@@ -46,7 +46,7 @@ int main() {
         }
     }
 
-    //   OPÇÃO 2: RESOLVER COM BFS
+    //   OPCAO 2: RESOLVER COM BFS
     else if (opcao == 2) {
         printf("\n======================================\n");
         printf("          EXECUTANDO BFS...           \n");
