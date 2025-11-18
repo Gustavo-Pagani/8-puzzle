@@ -46,7 +46,6 @@ void busca_profundidade(int inicial[3][3]){
 
         gerar_filhos(atual, filhos, &qtd);
 
-        // Empilhar apenas não visitados
         for (int i = 0; i < qtd; i++){
             if (!foi_visitado(filhos[i])) {
                 marcar_visitado(filhos[i]);

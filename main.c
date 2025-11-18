@@ -4,6 +4,7 @@
 #include "puzzle.h"
 #include "busca_largura.h"
 #include "busca_profundidade.h"
+#include "A_estrela.h"
 
 int main() {
 
@@ -14,7 +15,6 @@ int main() {
     char mov;
     int opcao;
 
-    // Gera somente tabuleiros válidos
     do {
         gerar_tabuleiro_aleatorio(vetor);
     } while(!eh_resolvivel(vetor));
@@ -27,10 +27,13 @@ int main() {
     printf("1 - Jogar manualmente\n");
     printf("2 - Resolver com IA (BFS)\n");
     printf("3 - Resolver com IA (DFS)\n");
+    printf("4 - Resolver com IA (A*)\n");
     printf("Escolha: ");
     scanf("%d", &opcao);
 
-    // ----- OPÇÃO 1: JOGAR MANUALMENTE -----
+    clock_t inicio, fim;
+    inicio = clock();
+
     if (opcao == 1) {
 
         while (1) {
@@ -45,14 +48,13 @@ int main() {
             if (estado_final(tabuleiro)) {
                 imprimir_tabuleiro(tabuleiro);
                 printf("\n======================================\n");
-                printf("       PARABENS! Puzzle Resolvido!    \n");
+                printf("       PARABÉNS! Puzzle Resolvido!    \n");
                 printf("======================================\n");
                 break;
             }
         }
     }
 
-    // ----- OPÇÃO 2: BFS -----
     else if (opcao == 2) {
         printf("\n======================================\n");
         printf("          EXECUTANDO BFS...           \n");
@@ -61,7 +63,6 @@ int main() {
         busca_largura(tabuleiro);
     }
 
-    // ----- OPÇÃO 3: DFS -----
     else if (opcao == 3) {
         printf("\n======================================\n");
         printf("          EXECUTANDO DFS...           \n");
@@ -70,10 +71,24 @@ int main() {
         busca_profundidade(tabuleiro);
     }
 
-    // Opção inválida
-    else {
-        printf("\nOpcao invalida.\n");
+    else if (opcao == 4) {
+        printf("\n======================================\n");
+        printf("          EXECUTANDO A*...            \n");
+        printf("======================================\n\n");
+
+        busca_Aestrela(tabuleiro);
     }
+
+    else {
+        printf("\nOpção inválida.\n");
+        return 0;
+    }
+
+    fim = clock();
+
+    printf("\n--------------------------------------\n");
+    printf("Tempo de execução: %.3f segundos\n", (float)(fim - inicio) / CLOCKS_PER_SEC);
+    printf("--------------------------------------\n");
 
     return 0;
 }
